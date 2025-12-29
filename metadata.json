@@ -1,0 +1,5 @@
+{
+  "name": "CardMaster - Credit Card Transaction Management",
+  "description": "A high-performance system for managing credit card deposits, withdrawals, and renewals with automated calculations and visual analytics.",
+  "requestFramePermissions": []
+}
