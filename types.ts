@@ -52,6 +52,7 @@ export interface Transaction {
   status: TransactionStatus;
   depositImages: string[];
   withdrawImages: string[];
+  notes?: string;
 }
 
 export type TaskStatus = 'TODO' | 'IN_PROGRESS' | 'DONE';
@@ -71,6 +72,7 @@ export interface Task {
   assignedTo: string[];
   assignedToNames: string[];
   createdBy: string;
+  createdByName: string;
   createdAt: string;
   status: TaskStatus;
   comments: TaskComment[];

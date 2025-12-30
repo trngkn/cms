@@ -152,7 +152,13 @@ const App: React.FC = () => {
   };
 
   const handleCreateTask = (newTask: Task) => {
-    setTasks([newTask, ...tasks]);
+    if (!user) return;
+    const taskWithAuthor = { 
+      ...newTask, 
+      createdBy: user.username, 
+      createdByName: user.fullName 
+    };
+    setTasks([taskWithAuthor, ...tasks]);
     notifyUsers(`Bạn được giao công việc mới: ${newTask.title}`, newTask.id, newTask.assignedTo);
   };
 
@@ -185,7 +191,7 @@ const App: React.FC = () => {
     }
   };
 
-  if (!user) return <AuthPage onLogin={handleLogin} users={users} />;
+  if (!user) return <AuthPage onLogin={handleLogin} users={users} siteName={siteName} siteLogo={siteLogo} />;
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
